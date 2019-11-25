@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog("setBluetooth \(on)")
         IOBluetoothPreferenceSetControllerPowerState(on ? 1 : 0)
     }
-    
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         updateBluetoothBasedOnScreen()
         let nc = NotificationCenter.default
@@ -25,6 +25,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                        object: nil)
     }
     
+    func applicationWillTerminate(_ notification: Notification) {
+        setBluetooth(on: true) //Turn on bluetooth since we might need it the next time the Mac boots
+    }
+
     @objc func updateBluetoothBasedOnScreen() {
         if NSScreen.screens.count == 1 {
             let screen = NSScreen.screens.first!
@@ -35,5 +39,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         setBluetooth(on: false)
     }
-
 }
