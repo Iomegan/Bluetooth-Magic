@@ -25,8 +25,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                        object: nil)
     }
     
-    func applicationWillTerminate(_ notification: Notification) {
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         setBluetooth(on: true) //Turn on bluetooth since we might need it the next time the Mac boots
+        return .terminateNow
     }
 
     @objc func updateBluetoothBasedOnScreen() {
