@@ -11,32 +11,29 @@ import IOBluetooth
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
     func setBluetooth(on: Bool) {
         NSLog("setBluetooth \(on)")
         IOBluetoothPreferenceSetControllerPowerState(on ? 1 : 0)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
+        updateBluetoothBasedOnScreen()
         let nc = NotificationCenter.default
         nc.addObserver(self,
-                       selector: #selector(screenDidChange),
+                       selector: #selector(updateBluetoothBasedOnScreen),
                        name: NSApplication.didChangeScreenParametersNotification,
                        object: nil)
-
     }
     
-    @objc func screenDidChange(notification: NSNotification){
-        setBluetooth(on: NSScreen.screens.count != 1)
+    @objc func updateBluetoothBasedOnScreen() {
+        if NSScreen.screens.count == 1 {
+            let screen = NSScreen.screens.first!
+            if let id = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID {
+                setBluetooth(on: CGDisplayIsBuiltin(id) == 0)
+                return
+            }
+        }
+        setBluetooth(on: false)
     }
-
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
 
 }
-
