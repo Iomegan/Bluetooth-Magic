@@ -18,7 +18,8 @@
 		D1DE5490238BF37600605EB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1DE5493238BF37600605EB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D1DE5495238BF37600605EB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1DE5496238BF37600605EB5 /* Bluetooth_Magic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bluetooth_Magic.entitlements; sourceTree = "<group>"; };
+		D1DE549D238BF3AE00605EB5 /* Bluetooth Magic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bluetooth Magic-Bridging-Header.h"; sourceTree = "<group>"; };
+		D1DE54A0238BF70600605EB5 /* Bluetooth Magic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bluetooth Magic.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,11 +52,12 @@
 		D1DE548D238BF37400605EB5 /* Bluetooth Magic */ = {
 			isa = PBXGroup;
 			children = (
+				D1DE54A0238BF70600605EB5 /* Bluetooth Magic.entitlements */,
 				D1DE548E238BF37400605EB5 /* AppDelegate.swift */,
 				D1DE5490238BF37600605EB5 /* Assets.xcassets */,
 				D1DE5492238BF37600605EB5 /* MainMenu.xib */,
 				D1DE5495238BF37600605EB5 /* Info.plist */,
-				D1DE5496238BF37600605EB5 /* Bluetooth_Magic.entitlements */,
+				D1DE549D238BF3AE00605EB5 /* Bluetooth Magic-Bridging-Header.h */,
 			);
 			path = "Bluetooth Magic";
 			sourceTree = "<group>";
@@ -92,6 +94,7 @@
 				TargetAttributes = {
 					D1DE548A238BF37400605EB5 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -265,7 +268,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Bluetooth Magic/Bluetooth_Magic.entitlements";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Bluetooth Magic/Bluetooth Magic.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GH2Y99U35Z;
@@ -277,6 +281,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.witt-software.Bluetooth-Magic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bluetooth Magic/Bluetooth Magic-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -285,7 +291,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Bluetooth Magic/Bluetooth_Magic.entitlements";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Bluetooth Magic/Bluetooth Magic.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GH2Y99U35Z;
@@ -297,6 +304,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.witt-software.Bluetooth-Magic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bluetooth Magic/Bluetooth Magic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
